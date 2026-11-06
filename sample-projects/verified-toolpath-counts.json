@@ -1,0 +1,147 @@
+[
+  {
+    "recipe_id": 1,
+    "name": "Cyan",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "1": 100
+    },
+    "alternations": 0
+  },
+  {
+    "recipe_id": 2,
+    "name": "Magenta",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "2": 100
+    },
+    "alternations": 0
+  },
+  {
+    "recipe_id": 3,
+    "name": "Yellow",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "3": 100
+    },
+    "alternations": 0
+  },
+  {
+    "recipe_id": 4,
+    "name": "White",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "4": 100
+    },
+    "alternations": 0
+  },
+  {
+    "recipe_id": 5,
+    "name": "Black",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "5": 100
+    },
+    "alternations": 0
+  },
+  {
+    "recipe_id": 6,
+    "name": "Cyan + Magenta 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "1": 50,
+      "2": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 7,
+    "name": "Cyan + Yellow 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "1": 50,
+      "3": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 8,
+    "name": "Cyan + White 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "1": 50,
+      "4": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 9,
+    "name": "Cyan + Black 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "1": 50,
+      "5": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 10,
+    "name": "Magenta + Yellow 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "2": 50,
+      "3": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 11,
+    "name": "Magenta + White 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "2": 50,
+      "4": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 12,
+    "name": "Magenta + Black 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "2": 50,
+      "5": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 13,
+    "name": "Yellow + White 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "3": 50,
+      "4": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 14,
+    "name": "Yellow + Black 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "3": 50,
+      "5": 50
+    },
+    "alternations": 99
+  },
+  {
+    "recipe_id": 15,
+    "name": "White + Black 50:50",
+    "sampled_layers": 100,
+    "tool_layer_counts": {
+      "4": 50,
+      "5": 50
+    },
+    "alternations": 99
+  }
+]

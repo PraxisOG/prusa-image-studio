@@ -1,0 +1,12 @@
+# Versions used for the local validation run; install this project with pip install -e .
+numpy==2.5.1
+Pillow==13.0.0
+trimesh==5.2.0
+scipy==1.18.1
+rtree==1.4.1
+networkx==3.7
+lxml==5.2.1
+defusedxml==0.7.1
+pytest==9.2.0
+moderngl==5.13.0
+glcontext==3.1.0
