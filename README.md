@@ -4,7 +4,7 @@ A local desktop editor that puts an image on a model's vertical wall and exports
 
 Designed for an **Original Prusa XL, five standard-flow 0.4 mm nozzles, Sunlu PETG**, with **T1 cyan / T2 magenta / T3 yellow / T4 white / T5 black**. The palette offers the five physical filaments and all ten **50:50** pairs. Blends use actual virtual extruders; PrusaSlicer alternates their constituent tools by layer.
 
-Version **0.2.0** has a model-first workflow, continuous texture previews, direct image dragging, selectable color quantization, and independent horizontal/vertical detail. Tested on Linux with **PrusaSlicer 3.0.0-alpha13**. This is an independent project, not affiliated with Prusa Research.
+Version **0.2.1** has a model-first workflow, continuous texture previews, direct image dragging, selectable color quantization, and independent horizontal/vertical detail. It fixes the Linux file-picker crash present in 0.2.0. Tested on Linux with **PrusaSlicer 3.0.0-alpha13**. This is an independent project, not affiliated with Prusa Research.
 
 ![Model-first editor with an image placed on a box](docs/editor.png)
 
@@ -96,6 +96,7 @@ The bundled template allows export without running the slicer. `prusa-image refr
 ```sh
 .venv/bin/python -m pytest -q
 .venv/bin/python scripts/smoke_gui.py
+.venv/bin/python scripts/smoke_file_dialogs.py
 .venv/bin/python scripts/verify_slicer.py
 .venv/bin/python scripts/audit_public.py
 ```

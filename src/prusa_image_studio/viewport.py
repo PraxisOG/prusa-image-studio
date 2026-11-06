@@ -1,5 +1,8 @@
 """Interactive projection on the original mesh; fine tessellation is export-only."""
 from dataclasses import dataclass
+from contextlib import contextmanager
+import ctypes
+import ctypes.util
 import os
 import sys
 
@@ -9,6 +12,32 @@ from PIL import Image
 
 from .geometry import SIDES, image_bounds, projection_coordinates
 from .palette import hex_rgb
+
+
+@contextmanager
+def preserve_x11_error_handler():
+    """Keep the GUI's process-wide X11 handler across GLX initialization.
+
+    glcontext's X11 backend resets XSetErrorHandler to the fatal default after
+    creating a context. Tk needs its own handler for transient BadWindow events
+    during file-dialog focus changes. Restore it even if context creation fails;
+    do not replace it with a handler that silently ignores all X11 errors.
+    """
+    if not sys.platform.startswith("linux"):
+        yield
+        return
+    library = os.environ.get("GLCONTEXT_LINUX_LIBX11") or ctypes.util.find_library("X11")
+    if not library:
+        raise RuntimeError("Desktop preview requires the X11 runtime library")
+    x11 = ctypes.CDLL(library)
+    x11.XSetErrorHandler.argtypes = [ctypes.c_void_p]
+    x11.XSetErrorHandler.restype = ctypes.c_void_p
+    previous = x11.XSetErrorHandler(None)
+    x11.XSetErrorHandler(previous)
+    try:
+        yield
+    finally:
+        x11.XSetErrorHandler(previous)
 
 
 @dataclass
@@ -118,7 +147,8 @@ class Viewport:
         software = sys.platform.startswith("linux") and os.environ.get("PRUSA_IMAGE_HARDWARE_GL") != "1"
         try:
             if software: os.environ["LIBGL_ALWAYS_SOFTWARE"] = "1"
-            self.ctx = moderngl.create_context(standalone=True, require=330)
+            with preserve_x11_error_handler():
+                self.ctx = moderngl.create_context(standalone=True, require=330)
         finally:
             if old is None: os.environ.pop("LIBGL_ALWAYS_SOFTWARE", None)
             else: os.environ["LIBGL_ALWAYS_SOFTWARE"] = old

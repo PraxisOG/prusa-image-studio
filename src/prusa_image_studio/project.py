@@ -13,6 +13,7 @@ from xml.sax.saxutils import escape, quoteattr
 
 import numpy as np
 
+from . import __version__
 from .palette import DEFAULT_HEX
 
 ASSETS = Path(__file__).parent / "assets"
@@ -161,7 +162,7 @@ def export_project(path, mesh, labels, recipes, name="Image panel", metadata=Non
     paint = [{"id": 2, "mmSegmentationFacetsVersion": 1,
               "mmSegmentationFacets": [{"triangle": i, "dividing": facet_code(int(label))}
                                         for i, label in enumerate(labels)]}]
-    record = {"generator": "Prusa Image Studio 0.2.0", "created_utc": datetime.now(timezone.utc).isoformat(),
+    record = {"generator": f"Prusa Image Studio {__version__}", "created_utc": datetime.now(timezone.utc).isoformat(),
               "palette": [{"id": r.id, "name": r.name, "color": r.color, "tools": list(r.tools)} for r in recipes],
               "triangle_count": len(mesh.faces), "size_mm": mesh.extents.tolist(),
               "base_material": "Sunlu PETG", "layer_height_mm": .1,

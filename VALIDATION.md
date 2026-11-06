@@ -1,5 +1,13 @@
 # Validation — 2026-11-06
 
+## 0.2.1 file-picker fix
+
+Opening the real STL picker reproduced a fatal X11 `BadWindow` / `X_TranslateCoords` error. The GLX backend replaced Tk's process-wide error handler with Xlib's fatal default during preview initialization. The editor now restores the original handler after context creation, including failure paths.
+
+**47 tests pass**, including new checks for handler preservation. The real-dialog smoke repeatedly loads and cancels STL selection, opens an image, exports through the save picker, and renders again. The previous GUI smoke mocked picker return values and could not detect this failure. Both GUI smoke tests now pass locally, and CI runs the real-picker regression separately under Xvfb. The export geometry and 50:50 implementation are unchanged.
+
+## 0.2.0 export and performance baseline
+
 Version **0.2.0**, validated locally on Linux with Python 3.12 and **PrusaSlicer 3.0.0-alpha13**, Flatpak commit `75e4b1ecccc80d6a0e55a375f0f7b1896d35dca3330dc52bd205c5a1e154a6a7`.
 
 ## Automated results

@@ -17,5 +17,8 @@ jobs:
         run: xvfb-run -a python -m pytest -q
       - name: Model-first GUI smoke
         run: xvfb-run -a -s '-screen 0 1600x1200x24' python scripts/smoke_gui.py
+      - name: Real file-dialog regression
+        timeout-minutes: 3
+        run: xvfb-run -a -s '-screen 0 1600x1200x24' python scripts/smoke_file_dialogs.py
       - name: Public-file audit
         run: python scripts/audit_public.py

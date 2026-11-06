@@ -9,6 +9,7 @@ from tkinter import colorchooser, filedialog, messagebox, ttk
 import numpy as np
 from PIL import Image, ImageTk, ImageOps
 
+from . import __version__
 from .geometry import Placement, SIDES, load_model, panel, projection_coordinates
 from .palette import make_palette, read_image, quantize, grid_preview, save_palette, load_palette
 from .project import open_project
@@ -527,7 +528,7 @@ class Studio:
             except Exception as exc: messagebox.showerror("Open project", str(exc))
 
     def about(self):
-        messagebox.showinfo("Prusa Image Studio 0.2.0", "Copyright © 2026 PraxisOG and contributors.\n\n"
+        messagebox.showinfo(f"Prusa Image Studio {__version__}", "Copyright © 2026 PraxisOG and contributors.\n\n"
             "Free software under the GNU AGPL v3, without warranty. See LICENSE in the source distribution. "
             "Prusa color prediction is adapted under its MIT license; see THIRD_PARTY_NOTICES.md.\n\n"
             "Source: https://github.com/PraxisOG/prusa-image-studio\n"
